@@ -39,7 +39,7 @@ module.exports = SuperJS.Application.extend({
 
     this.schedule('path', { build: { subModule: __dirname, shortcut: 'paths', local: true} });
 
-    this.schedule('environment', { build: {subModule: __dirname, shorcut:'env', local: true} });
+    this.schedule('env', { build: {subModule: __dirname, shorcut:'env', local: true} });
 
     this.schedule('config', { build: { subModule: __dirname, shortcut: 'config', local: true, after: function() {
 
