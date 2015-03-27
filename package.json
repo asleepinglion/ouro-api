@@ -1,0 +1,20 @@
+{
+  "name": "superjs-api",
+  "author": {
+    "name": "Aaron Storck",
+    "email": "aaronstorck@gmail.com"
+  },
+  "version": "0.8.0",
+  "description": "Super-configurable, super-extendable, API framework for Node.JS.",
+  "main": "index.js",
+  "repository": "https://github.com/asleepinglion/superjs-api",
+  "dependencies": {
+    "recursive-merge": "^1.2.0",
+    "underscore": "~1.6.0",
+    "superjs": "*",
+    "superjs-env": "*",
+    "superjs-path": "*",
+    "superjs-json-server": "*"
+  },
+  "license": "MIT"
+}
