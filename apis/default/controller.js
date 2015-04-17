@@ -19,13 +19,13 @@ module.exports = SuperJS.Controller.extend({
     this._loadMeta(__filename);
   },
 
-  default: function(req) {
+  default: function(resolve, reject, req) {
 
-    this.resolve({meta:{success: true, test: false}});
+    resolve({meta:{success: true, test: false}});
 
   },
 
-  describe: function(req) {
+  describe: function(resolve, reject, req) {
 
     //maintain reference to instance
     var self = this;
@@ -85,7 +85,7 @@ module.exports = SuperJS.Controller.extend({
       }
     }
 
-    this.resolve(response);
+    resolve(response);
 
 
   },

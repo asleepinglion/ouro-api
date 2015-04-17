@@ -20,7 +20,7 @@ YSS'      YSSP~YSSY    S*S           YSSP  S*S    SSS  YSSY    YSS'
  */
 
 module.exports.version = require('./package.json').version;
-module.exports.Api = require('./modules/api/class');
-module.exports.Controller = require('./modules/controller/class');
-module.exports.Adapter = require('./modules/adapter/class');
-module.exports.Model = require('./modules/model/class');
+module.exports.Api = require('./lib/api/class');
+module.exports.Controller = require('./lib/controller/class');
+module.exports.Adapter = require('./lib/adapter/class');
+module.exports.Model = require('./lib/model/class');
