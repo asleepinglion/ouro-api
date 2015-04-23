@@ -21,7 +21,7 @@ module.exports = SuperJS.Controller.extend({
 
   default: function(resolve, reject, req) {
 
-    resolve({meta:{success: true, test: false}});
+    resolve({meta:{success: true}});
 
   },
 
