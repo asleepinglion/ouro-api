@@ -10,12 +10,16 @@ module.exports = {
 
     default: {
       description: "The default action returns the status of the API.",
+      action: true,
+      security: false,
       async: true
     },
 
     describe: {
 
       description: "The describe method reflects the available services, controllers, and models.",
+      action: true,
+      security: false,
       async: true,
       params: {
 
