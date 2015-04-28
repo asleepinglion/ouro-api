@@ -62,26 +62,32 @@ module.exports = SuperJS.Controller.extend({
       response.models = {};
 
       //loop through the loaded controllers
-      for ( var model in self.app.models ) {
+      for( var adapter in self.app.adapters ) {
 
-        //console.log(self.app.models[model]);
+        for( var model in self.app.adapters[adapter].models ) {
 
-        //setup the model
-        response.models[model] = {};
+          //console.log(self.app.models[model]);
 
-        //copy the model description
-        response.models[model].description = self.app.models[model].description;
+          //setup the model
+          response.models[model] = {};
 
-        //copy the model connection
-        response.models[model].connection = self.app.models[model].connection;
+          //copy the model description
+          response.models[model].description = self.app.adapters[adapter].models[model].description;
 
-        //copy the model attributes
-        response.models[model].attributes = JSON.parse(JSON.stringify(self.app.models[model].attributes));
+          //copy the adapter name
+          response.models[model].adapter = adapter;
 
-        if( typeof options.models === 'object' ) {
-          self.pruneObject(options.models, response.models[model], model);
+          //copy the model connection
+          response.models[model].connection = self.app.adapters[adapter].models[model].connection;
+
+          //copy the model attributes
+          response.models[model].attributes = JSON.parse(JSON.stringify(self.app.adapters[adapter].models[model].attributes));
+
+          if (typeof options.models === 'object') {
+            self.pruneObject(options.models, response.models[model], model);
+          }
+
         }
-
       }
     }
 
