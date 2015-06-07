@@ -1,31 +1,17 @@
 "use strict";
 
-var SuperJS = require('../../index');
-var Promise = require('bluebird');
+var SuperJS = require('../../../../../index');
 
-
-/**
- * The default controller provides default routes for the application
- *
- * @exports Controller
- * @namespace SuperJS
- * @extends SuperJS.Class
- */
-
-module.exports = SuperJS.Controller.extend({
+module.exports = SuperJS.Action.extend({
 
   _metaFile: function() {
     this._super();
     this._loadMeta(__filename);
   },
+  
+  run: function(resolve, reject, req) {
 
-  default: function(resolve, reject, req) {
-
-    resolve({meta:{success: true}});
-
-  },
-
-  describe: function(resolve, reject, req) {
+    console.log(this.app);
 
     //maintain reference to instance
     var self = this;
@@ -49,7 +35,7 @@ module.exports = SuperJS.Controller.extend({
         response.controllers[controller] = JSON.parse(JSON.stringify(self.app.controllers[controller].meta));
 
         if( typeof options.controllers === 'object' ) {
-          self.pruneObject(options.controllers, response.controllers[controller], controller);
+          self._pruneMetaData(options.controllers, response.controllers[controller], controller);
         }
 
       }
@@ -84,7 +70,7 @@ module.exports = SuperJS.Controller.extend({
           response.models[model].attributes = JSON.parse(JSON.stringify(self.app.adapters[adapter].models[model].attributes));
 
           if (typeof options.models === 'object') {
-            self.pruneObject(options.models, response.models[model], model);
+            self._pruneMetaData(options.models, response.models[model], model);
           }
 
         }
@@ -96,7 +82,7 @@ module.exports = SuperJS.Controller.extend({
 
   },
 
-  pruneObject: function(options,context,contextName) {
+  _pruneMetaData: function(options, context, contextName) {
 
     //loop through context properties and delete based on options
     for( var property in context) {
@@ -111,7 +97,7 @@ module.exports = SuperJS.Controller.extend({
       } else if( typeof options[property] === 'object') {
 
         for( var subProperty in context[property] ) {
-          this.pruneObject(options[property],context[property][subProperty],"." + contextName + "." + property + "." + subProperty);
+          this._pruneMetaData(options[property],context[property][subProperty],"." + contextName + "." + property + "." + subProperty);
         }
 
       }

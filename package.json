@@ -10,11 +10,12 @@
   "repository": "https://github.com/asleepinglion/superjs-api",
   "dependencies": {
     "bluebird": "*",
+    "change-case": "^2.3.0",
+    "colors": "*",
     "recursive-merge": "*",
-    "underscore": "*",
     "superjs": "*",
     "superjs-json-server": "*",
-    "colors": "*"
+    "underscore": "*"
   },
   "license": "MIT"
 }

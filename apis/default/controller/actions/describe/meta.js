@@ -1,21 +1,10 @@
-/**
- * The Default Blueprint describes the methods of the controller.
- */
-
 module.exports = {
 
   description: 'The default controller provides a basic set of methods for the API server.',
 
   methods: {
 
-    default: {
-      description: "The default action returns the status of the API.",
-      action: true,
-      security: false,
-      async: true
-    },
-
-    describe: {
+    run: {
 
       description: "The describe method reflects the available services, controllers, and models.",
       action: true,
@@ -38,6 +27,7 @@ module.exports = {
 
       }
     }
+
   }
 
 };
