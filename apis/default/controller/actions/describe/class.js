@@ -11,8 +11,6 @@ module.exports = SuperJS.Action.extend({
   
   run: function(resolve, reject, req) {
 
-    console.log(this.app);
-
     //maintain reference to instance
     var self = this;
 
@@ -33,6 +31,16 @@ module.exports = SuperJS.Action.extend({
 
         //copy the blueprint for the controller
         response.controllers[controller] = JSON.parse(JSON.stringify(self.app.controllers[controller].meta));
+
+        //setup actions object
+        response.controllers[controller].actions = {};
+
+        //populate controller with action meta data
+        for( var action in self.app.controllers[controller]._actions ) {
+
+          response.controllers[controller].actions[self.app.controllers[controller]._actions[action].name] = JSON.parse(JSON.stringify(self.app.controllers[controller]._actions[action].meta.methods.run));
+
+        }
 
         if( typeof options.controllers === 'object' ) {
           self._pruneMetaData(options.controllers, response.controllers[controller], controller);
@@ -67,7 +75,7 @@ module.exports = SuperJS.Action.extend({
           response.models[model].connection = self.app.adapters[adapter].models[model].connection;
 
           //copy the model attributes
-          response.models[model].attributes = JSON.parse(JSON.stringify(self.app.adapters[adapter].models[model].attributes));
+          response.models[model].attributes = JSON.parse(JSON.stringify(self.app.adapters[adapter].models[model].meta.attributes));
 
           if (typeof options.models === 'object') {
             self._pruneMetaData(options.models, response.models[model], model);
