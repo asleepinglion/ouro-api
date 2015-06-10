@@ -1,6 +1,7 @@
 module.exports = {
 
   description: 'The Default action for the Default controller',
+  security: false,
 
   methods: {
 
