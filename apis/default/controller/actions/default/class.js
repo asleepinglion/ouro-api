@@ -1,8 +1,8 @@
 "use strict";
 
-var SuperJS = require('../../../../../index');
+var Ouro = require('../../../../../index');
 
-module.exports = SuperJS.Action.extend({
+module.exports = Ouro.Action.extend({
 
   _metaFile: function() {
     this._super();

@@ -16,7 +16,7 @@ YSS'      YSSP~YSSY    S*S           YSSP  S*S    SSS  YSSY    YSS'
                        SP                  SP
                        Y                   Y
 
-                   -= SuperJS API Application =-
+                   -= Ouro API Application =-
  */
 
 module.exports.version = require('./package.json').version;

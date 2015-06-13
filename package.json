@@ -1,5 +1,5 @@
 {
-  "name": "superjs-api",
+  "name": "ouro-api",
   "author": {
     "name": "Aaron Storck",
     "email": "aaronstorck@gmail.com"
@@ -7,14 +7,14 @@
   "version": "0.8.26",
   "description": "Super-configurable, super-extendable, API framework for Node.JS.",
   "main": "index.js",
-  "repository": "https://github.com/asleepinglion/superjs-api",
+  "repository": "https://github.com/asleepinglion/ouro-api",
   "dependencies": {
     "bluebird": "*",
     "change-case": "^2.3.0",
     "colors": "*",
     "recursive-merge": "*",
-    "superjs": "*",
-    "superjs-json-server": "*",
+    "ouro": "*",
+    "ouro-json-server": "*",
     "underscore": "*"
   },
   "license": "MIT"

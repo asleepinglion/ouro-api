@@ -1,6 +1,6 @@
 "use strict";
 
-var SuperJS = require('../../../index');
+var Ouro = require('../../../index');
 var Promise = require('bluebird');
 
 
@@ -8,11 +8,11 @@ var Promise = require('bluebird');
  * The default controller provides default routes for the application
  *
  * @exports Controller
- * @namespace SuperJS
- * @extends SuperJS.Class
+ * @namespace Ouro
+ * @extends Ouro.Class
  */
 
-module.exports = SuperJS.Controller.extend({
+module.exports = Ouro.Controller.extend({
 
   _metaFile: function() {
     this._super();
